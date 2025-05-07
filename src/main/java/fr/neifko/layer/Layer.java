@@ -1,5 +1,7 @@
 package fr.neifko.layer;
+import fr.neifko.shape.Shape;
 
+import java.util.ArrayList;
 
 
 /**
@@ -11,9 +13,9 @@ public class Layer {
     // Fields
     //
 
-    protected unsigned int id;
+    protected int id;
     protected char name;
-    protected unsigned char visible;
+    protected char visible;
     protected ArrayList shapes;
 
     //
@@ -34,7 +36,7 @@ public class Layer {
      * Set the value of id
      * @param newVar the new value of id
      */
-    public void setId (unsigned int newVar) {
+    public void setId (int newVar) {
         id = newVar;
     }
 
@@ -42,7 +44,7 @@ public class Layer {
      * Get the value of id
      * @return the value of id
      */
-    public unsigned int getId () {
+    public int getId () {
         return id;
     }
 
@@ -66,7 +68,7 @@ public class Layer {
      * Set the value of visible
      * @param newVar the new value of visible
      */
-    public void setVisible (unsigned char newVar) {
+    public void setVisible (char newVar) {
         visible = newVar;
     }
 
@@ -74,7 +76,7 @@ public class Layer {
      * Get the value of visible
      * @return the value of visible
      */
-    public unsigned char getVisible () {
+    public char getVisible () {
         return visible;
     }
 
@@ -107,7 +109,7 @@ public class Layer {
 
 
     /**
-     * @param        layer_list
+     * @param layer_list
      */
     private void delete_layers_list(LayersList layer_list)
     {
@@ -115,8 +117,8 @@ public class Layer {
 
 
     /**
-     * @param        layer_list
-     * @param        layer
+     * @param layer_list
+     * @param layer
      */
     private void add_layer_to_list(LayersList layer_list, Layer layer)
     {
@@ -124,8 +126,8 @@ public class Layer {
 
 
     /**
-     * @param        layer_list
-     * @param        layer
+     * @param layer_l
+     * @param layer
      */
     private void remove_layer_from_list(LayersList layer_list, Layer layer)
     {
@@ -133,7 +135,7 @@ public class Layer {
 
 
     /**
-     * @param        layer
+     * @param layer
      */
     private void set_layer_visible(Layer layer)
     {
@@ -141,7 +143,7 @@ public class Layer {
 
 
     /**
-     * @param        layer
+     * @param layer
      */
     private void set_layer_unvisible(Layer layer)
     {
@@ -149,8 +151,8 @@ public class Layer {
 
 
     /**
-     * @param        layer
-     * @param        shape
+     * @param layer
+     * @param shape
      */
     private void add_shape_to_layer(Layer layer, Shape shape)
     {
@@ -158,8 +160,8 @@ public class Layer {
 
 
     /**
-     * @param        layer
-     * @param        shape
+     * @param layer
+     * @param shape
      */
     private void remove_shape_to_from(Layer layer, Shape shape)
     {

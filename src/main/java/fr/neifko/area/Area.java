@@ -3,54 +3,23 @@ package fr.neifko.area;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.neifko.layer.Layer;
+
+
 /**
  * Classe représentant une zone (Area).
  */
 public class Area {
 
-    /**
-     * Identifiant unique de la zone.
-     */
     protected int id;
-
-    /**
-     * Nom de la zone.
-     */
     protected String name;
-
-    /**
-     * Largeur de la zone.
-     */
     protected int width;
-
-    /**
-     * Hauteur de la zone.
-     */
     protected int height;
-
-    /**
-     * Caractère représentant une case vide.
-     */
     protected char emptyChar = '.';
-
-    /**
-     * Caractère représentant une case pleine.
-     */
     protected char fullChar = '@';
-
-    /**
-     * Matrice représentant la zone.
-     */
     protected char[][] area;
-
-    /**
-     * Liste des couches associées à la zone.
-     */
     protected List<Layer> lstLayers;
 
-    /**
-     * Constructeur par défaut.
-     */
     public Area() {
         this.lstLayers = new ArrayList<>();
     }
@@ -86,39 +55,30 @@ public class Area {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public int getWidth() {
         return width;
     }
-
     public void setWidth(int width) {
         this.width = width;
     }
-
     public int getHeight() {
         return height;
     }
-
     public void setHeight(int height) {
         this.height = height;
     }
-
     public char getEmptyChar() {
         return emptyChar;
     }
-
     public void setEmptyChar(char emptyChar) {
         this.emptyChar = emptyChar;
     }

@@ -3,19 +3,11 @@ package fr.neifko.area;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Classe représentant une liste de zones (AreaList).
- */
+
 public class AreaList {
 
-    /**
-     * Liste des zones.
-     */
     protected List<Area> areas;
 
-    /**
-     * Constructeur par défaut.
-     */
     public AreaList() {
         this.areas = new ArrayList<>();
     }

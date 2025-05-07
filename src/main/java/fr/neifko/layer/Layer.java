@@ -101,40 +101,6 @@ public class Layer {
     //
 
     /**
-     * @return       LayersList
-     */
-    private LayersList create_layers_list()
-    {
-    }
-
-
-    /**
-     * @param layer_list
-     */
-    private void delete_layers_list(LayersList layer_list)
-    {
-    }
-
-
-    /**
-     * @param layer_list
-     * @param layer
-     */
-    private void add_layer_to_list(LayersList layer_list, Layer layer)
-    {
-    }
-
-
-    /**
-     * @param layer_l
-     * @param layer
-     */
-    private void remove_layer_from_list(LayersList layer_list, Layer layer)
-    {
-    }
-
-
-    /**
      * @param layer
      */
     private void set_layer_visible(Layer layer)

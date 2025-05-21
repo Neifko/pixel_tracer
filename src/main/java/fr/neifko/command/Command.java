@@ -135,6 +135,35 @@ public class Command {
         }
     }
 
+    public static int readAndExcute() {
+        Command cmd = Command.createCommand();
+        readFromStdin(cmd);
+        return execCommand(cmd);
+    }
+
+    public static int execCommand(Command cmd) {
+        if (cmd.stringParams.isEmpty()) {
+            return 2; // commande manquante
+        }
+
+        String commandName = cmd.stringParams.get(0);
+
+        switch (commandName) {
+            case "exit":
+                return 4; // exit
+            case "clear":
+                return 5; // clear
+            case "plot":
+                return 6; // plot
+            case "help":
+                return 7; // help
+            case "done":
+                return 8; // done
+            default:
+                return 1; // commande inconnue
+        }
+    }
+
     public static void debugCmd(Command cmd) {
         System.out.println("\n --- ");
         System.out.println("str:");

@@ -22,7 +22,7 @@ public class Layer {
     // Constructors
     //
     public Layer () {
-    };
+    }
 
 
     /**

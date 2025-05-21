@@ -1,9 +1,9 @@
 package fr.neifko.shape;
 
 public class Rectangle extends Shape{
-    protected Point p1;
-    protected int width;
-    protected int height;
+    public Point p1;
+    public int width;
+    public int height;
 
     public Rectangle(Point p1, int width, int height) {
         this.p1 = p1;

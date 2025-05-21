@@ -1,8 +1,8 @@
 package fr.neifko.shape;
 
 public class Circle extends Shape{
-    protected Point center;
-    protected int radius;
+    public Point center;
+    public int radius;
 
     public Circle(Point center, int radius) {
         this.center = center;

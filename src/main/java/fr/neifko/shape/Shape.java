@@ -2,10 +2,10 @@ package fr.neifko.shape;
 
 public abstract class Shape {
     protected int id;
-    protected boolean fill;
-    protected float thickness;
-    protected int color;
-    protected double rotation;
+    public boolean fill;
+    public float thickness;
+    public int color;
+    public double rotation;
 
     public abstract String toString();
 

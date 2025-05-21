@@ -1,7 +1,8 @@
 package fr.neifko.shape;
 
 public class Line extends Shape{
-    protected Point p1, p2;
+    public Point p1;
+    public Point p2;
 
     public Line(Point p1, Point p2) {
         this.p1 = p1;

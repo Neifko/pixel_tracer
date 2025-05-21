@@ -1,7 +1,10 @@
 package fr.neifko.shape;
 
 public class Curve extends Shape {
-    protected Point p1, p2, p3, p4;
+    public Point p1;
+    public Point p2;
+    public Point p3;
+    public Point p4;
 
     public Curve(Point p1, Point p2, Point p3, Point p4) {
         this.p1 = p1;

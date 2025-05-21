@@ -1,8 +1,8 @@
 package fr.neifko.shape;
 
 public class Point extends Shape {
-    protected int px;
-    protected int py;
+    public int px;
+    public int py;
 
     public Point(int px, int py) {
         this.px = px;

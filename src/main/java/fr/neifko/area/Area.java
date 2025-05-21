@@ -20,10 +20,6 @@ public class Area {
     char[][] area;
     ArrayList<Layer> lstLayers;
 
-    public Area() {
-        this.lstLayers = new ArrayList<>();
-    }
-
     /**
      * Constructeur avec paramètres.
      *
@@ -44,6 +40,19 @@ public class Area {
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 this.area[i][j] = emptyChar;
+            }
+        }
+    }
+
+    /**
+     * Réinitialise la zone en remplissant la matrice avec le caractère vide.
+     */
+    public void clearArea() {
+        if (area != null) {
+            for (int i = 0; i < height; i++) {
+                for (int j = 0; j < width; j++) {
+                    area[i][j] = emptyChar;
+                }
             }
         }
     }

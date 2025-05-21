@@ -82,11 +82,19 @@ public class Layer {
     }
 
     /**
-     * Set the value of shapes
-     * @param newVar the new value of shapes
+     * Add shape
+     * @param shape the new value of shapes
      */
-    public void setShapes (ArrayList <Shape> newVar) {
-        shapes = newVar;
+    public void addShapes (ArrayList <Shape> shape) {
+        shapes.addAll(shape);
+    }
+
+    /**
+     * Remove shape
+     * @param id id of shape
+     */
+    public void removeShape (int id) {
+        shapes.remove(id);
     }
 
     /**

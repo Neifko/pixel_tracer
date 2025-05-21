@@ -21,7 +21,11 @@ public class Layer {
     //
     // Constructors
     //
-    public Layer () {
+    public Layer (int id, char name, boolean visible, ArrayList<Shape> shapes) {
+        this.id = id;
+        this.name = name;
+        this.visible = visible;
+        this.shapes = shapes;
     }
 
 

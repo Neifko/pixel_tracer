@@ -1,196 +1,111 @@
 package fr.neifko.command;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import fr.neifko.Main;
+import fr.neifko.area.Area;
+import fr.neifko.layer.Layer;
+import fr.neifko.shape.Shape;
 
 public class Command {
 
-    public static final int MAX_PARAM = 30;
+    public static final int MAX_PARAM = 10;
+    public static final int MAX_STR_SIZE = 50;
+    public static final int MAX_FLT_SIZE = 50;
+
     public String name;
+    int int_size;
+    int[] int_params = new int[MAX_PARAM];
+    int str_size;
+    String[] str_params = new String[MAX_PARAM];
 
-    public List<Integer> intParams;
-    public List<Float> floatParams;
-    public List<String> stringParams;
-
-    // Messages d'erreur (traduction de command.c)
-    public static String[] errorMessages = {
-            "",
-            "Commande inconnue",
-            "Commande manquante",
-            "Erreur paramètres, consultez la commande help",
-            "exit",
-            "clear",
-            "plot",
-            "~~~ HELP ~~~",
-            "done",
-            "id inconnu dans la liste",
-    };
 
     public Command() {
-        this.name = "";
-        this.intParams = new ArrayList<>();
-        this.floatParams = new ArrayList<>();
-        this.stringParams = new ArrayList<>();
+        this.clear_command();
     }
 
-    public void addIntParam(int p) {
-        if (intParams.size() < MAX_PARAM)
-            intParams.add(p);
+    public void clear_command() {
+        int_size = 0;
+        str_size = 0;
     }
 
-    public void addFloatParam(float p) {
-        if (floatParams.size() < MAX_PARAM)
-            floatParams.add(p);
+    void print_help() {
+        System.out.println("Available commands: exit, help");
+        System.out.println("exit - Exit the program");
+        System.out.println("help - Show this help message");
+        System.out.println("line - Draw a line");
+        System.out.println("circle - Draw a circle");
+        System.out.println("rectangle - Draw a rectangle");
     }
 
-    public void addStringParam(String p) {
-        if (stringParams.size() < MAX_PARAM)
-            stringParams.add(p);
-    }
 
-    public static Command createCommand() {
-        return new Command();
-    }
+    public void read_from_stdin() {
+        System.out.print(">> ");
+        // read a entire string from stdin
+        String input = System.console().readLine();
+        // split the string into tokens
+        String[] tokens = input.split(" ");
+        // first token is the name of the command
+        name = tokens[0];
 
-    public static boolean isInt(String s) {
-        if (s == null || s.isEmpty()) return false;
-        for (int i = 0; i < s.length(); i++) {
-            if (!Character.isDigit(s.charAt(i))) {
-                return false;
+        for (int i = 1; i < tokens.length; i++) {
+            if (tokens[i].matches("-?\\d+")) {
+                // if the token is an integer
+                int_params[int_size] = Integer.parseInt(tokens[i]);
+                int_size++;
+            } else {
+                // if the token is a string
+                str_params[str_size] = tokens[i];
+                str_size++;
             }
         }
-        return true;
+
     }
 
-    public static boolean isWord(String s) {
-        if (s == null || s.isEmpty()) return false;
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (c < 'a' || c > 'z') {
-                return false;
-            }
+    public void read_exec_command(Main app, Area area, Layer layer, Shape shape) {
+        if (this.name.equals("exit")) {
+            System.out.println("Exiting...");
+            System.exit(0);
         }
-        return true;
-    }
-
-    public static boolean isFloat(String s) {
-        try {
-            Float.parseFloat(s);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
-
-    public static String cleanText(String str) {
-        if (str == null) return null;
-        // Transformation en minuscules
-        str = str.toLowerCase();
-        // Supprime le commentaire ou la fin de ligne
-        int index = str.indexOf('#');
-        if (index != -1) {
-            str = str.substring(0, index);
-        }
-        index = str.indexOf('\n');
-        if (index != -1) {
-            str = str.substring(0, index);
-        }
-        return str.trim();
-    }
-
-    public static void readFromStdin(Command cmd) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print("~> ");
-        String line;
-        try {
-            line = reader.readLine();
-        } catch (IOException e) {
+        if (this.name.equals("help")) {
+            System.out.println("Available commands: exit, help");
             return;
         }
-        if (line == null || line.isEmpty()) {
-            return; // rien lu
+        if (this.name.equals("line")) {
+            System.out.println("Draw line...");
+            return;
         }
-        line = cleanText(line);
-        String[] tokens = line.split("\\s+");
-        for (String token : tokens) {
-            if (cmd.stringParams.size() >= MAX_PARAM
-                    || cmd.intParams.size() >= MAX_PARAM
-                    || cmd.floatParams.size() >= MAX_PARAM)
-                return; // nb max args atteint
+        if (this.name.equals("circle")) {
+            System.out.println("Draw circle...");
+            return;
+        }
+        if (this.name.equals("rectangle")) {
+            System.out.println("Draw rectangle...");
+            return;
+        }
 
-            if (isWord(token)) {
-                cmd.addStringParam(token);
-            } else if (isInt(token)) {
-                cmd.addIntParam(Integer.parseInt(token));
-            } else if (isFloat(token)) {
-                cmd.addFloatParam(Float.parseFloat(token));
-            } else {
-                // Cas erreur, ajoute deux paramètres de type chaîne
-                cmd.addStringParam("error");
-                cmd.addStringParam("line");
+        if (this.name.equals("new")) {
+            if (this.str_params[0].equals("area")) {
+                System.out.println("New area...");
+                Area newArea = new Area(0,"New Area", 10, 10);
+                area = newArea;
+            } else if (this.str_params[0].equals("layer")) {
+                System.out.println("New layer...");
+                Layer newLayer = new Layer(0,"New Layer");
+                if (area != null) {
+                    area.addLayer(newLayer);
+                }
+                layer = newLayer;
+            } else if (this.str_params[0].equals("shape")) {
+                System.out.println("New shape...");
+                Shape newShape = new Shape();
+                if (layer != null) {
+                    layer.addShape(newShape);
+                }
+                shape = newShape;
             }
+            return;
         }
-    }
+        end:
+        System.out.println("Unknown command: " + this.name);
 
-    public static int readAndExcute() {
-        Command cmd = Command.createCommand();
-        readFromStdin(cmd);
-        return execCommand(cmd);
-    }
-
-    public static int execCommand(Command cmd) {
-        if (cmd.stringParams.isEmpty()) {
-            return 2; // commande manquante
-        }
-
-        String commandName = cmd.stringParams.get(0);
-
-        switch (commandName) {
-            case "exit":
-                return 4; // exit
-            case "clear":
-                return 5; // clear
-            case "plot":
-                return 6; // plot
-            case "help":
-                return 7; // help
-            case "done":
-                return 8; // done
-            default:
-                return 1; // commande inconnue
-        }
-    }
-
-    public static void debugCmd(Command cmd) {
-        System.out.println("\n --- ");
-        System.out.println("str:");
-        for (String s : cmd.stringParams) {
-            System.out.println("<" + s + ">");
-        }
-        System.out.println("int:");
-        for (Integer i : cmd.intParams) {
-            System.out.println("<" + i + ">");
-        }
-        System.out.println("float:");
-        for (Float f : cmd.floatParams) {
-            System.out.println("<" + f + ">");
-        }
-    }
-
-    public boolean checkNbParams(int expectedStr, int expectedInt, int expectedFloat) {
-        return this.stringParams.size() == expectedStr &&
-                this.intParams.size() == expectedInt &&
-                this.floatParams.size() == expectedFloat;
-    }
-
-    public boolean checkNbParamsPolygon() {
-        return this.stringParams.size() == 1 &&
-                this.intParams.size() != 0 &&
-                this.intParams.size() < MAX_PARAM &&
-                this.intParams.size() % 2 == 0 &&
-                this.floatParams.size() == 0;
     }
 }

@@ -29,23 +29,20 @@ public class Main {
         // draw_all_layer
         // draw area
 
-        while(true) {
-            int err = Command.execCommand();
-            if (err == 0 || err == 6){
-                // clear_screen
-                // draw_all_layer
-                // draw area
-            }
-            if (err == 4){
-                break;
-            }
-            if (err == 5){
-                // clear_screen
-            }
-            if (err == 7 || err == 8){
-                continue;
-            }
+        void add_area_to_list(Area area) {
+            areas.add(area);
         }
+
+        Command command;
+
+
+
+
+        System.out.println("Pixel Tracer App");
+        while (true) {
+            command.clear_command();
+            command.read_from_stdin();
+            command.read_exec_command(this, currentArea, currentLayer, currentShape);
 
 
     }

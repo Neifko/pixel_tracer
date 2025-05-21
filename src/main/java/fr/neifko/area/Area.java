@@ -58,7 +58,6 @@ public class Area {
     }
 
     // Getters et setters
-
     public int getId() {
         return id;
     }
@@ -89,30 +88,25 @@ public class Area {
     public void setEmptyChar(char emptyChar) {
         this.emptyChar = emptyChar;
     }
-
     public char getFullChar() {
         return fullChar;
     }
-
     public void setFullChar(char fullChar) {
         this.fullChar = fullChar;
     }
-
     public char[][] getArea() {
         return area;
     }
-
     public void setArea(char[][] area) {
         this.area = area;
     }
-
     public List<Layer> getLstLayers() {
         return lstLayers;
     }
-
     public void setLstLayers(List<Layer> lstLayers) {
         this.lstLayers = lstLayers;
     }
+
 
     /**
      * Ajoute une couche à la liste des couches.

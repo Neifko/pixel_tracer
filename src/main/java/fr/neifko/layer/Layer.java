@@ -14,18 +14,18 @@ public class Layer {
     //
 
     protected int id;
-    protected char name;
+    protected String name;
     protected boolean visible;
     protected ArrayList <Shape> shapes;
 
     //
     // Constructors
     //
-    public Layer (int id, char name, boolean visible, ArrayList<Shape> shapes) {
+    public Layer (int id, String name) {
         this.id = id;
         this.name = name;
-        this.visible = visible;
-        this.shapes = shapes;
+        this.visible = true;
+        this.shapes = new ArrayList<>();
     }
 
 

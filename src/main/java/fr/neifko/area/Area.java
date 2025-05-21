@@ -11,14 +11,14 @@ import fr.neifko.layer.Layer;
  */
 public class Area {
 
-    protected int id;
-    protected String name;
-    protected int width;
-    protected int height;
-    protected char emptyChar = '.';
-    protected char fullChar = '@';
-    protected char[][] area;
-    protected List<Layer> lstLayers;
+    long id;
+    String name;
+    int width;
+    int height;
+    char emptyChar = '.';
+    char fullChar = '#';
+    char[][] area;
+    ArrayList<Layer> lstLayers;
 
     public Area() {
         this.lstLayers = new ArrayList<>();
@@ -32,13 +32,11 @@ public class Area {
      * @param width    Largeur de la zone.
      * @param height   Hauteur de la zone.
      */
-    public Area(int id, String name, int width, int height) {
+    public Area(long id, String name, int width, int height) {
         this.id = id;
         this.name = name;
         this.width = width;
         this.height = height;
-        this.emptyChar = '.';
-        this.fullChar = '@';
         this.lstLayers = new ArrayList<>();
         this.area = new char[height][width];
 

@@ -22,10 +22,6 @@ public class Layer {
     // Constructors
     //
     public Layer () {
-        this.id = id;
-        this.name = name;
-        this.visible = visible;
-        this.shapes = shapes;
     };
 
 
@@ -100,43 +96,4 @@ public class Layer {
     public ArrayList <Shape> getShapes () {
         return shapes;
     }
-
-    //
-    // Other methods
-    //
-
-    /**
-     * @param layer
-     */
-    private void set_layer_visible(Layer layer)
-    {
-    }
-
-
-    /**
-     * @param layer
-     */
-    private void set_layer_unvisible(Layer layer)
-    {
-    }
-
-
-    /**
-     * @param layer
-     * @param shape
-     */
-    private void add_shape_to_layer(Layer layer, Shape shape)
-    {
-    }
-
-
-    /**
-     * @param layer
-     * @param shape
-     */
-    private void remove_shape_to_from(Layer layer, Shape shape)
-    {
-    }
-
-
 }

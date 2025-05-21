@@ -15,22 +15,19 @@ public class Layer {
 
     protected int id;
     protected char name;
-    protected char visible;
-    protected ArrayList shapes;
+    protected boolean visible;
+    protected ArrayList <Shape> shapes;
 
     //
     // Constructors
     //
-    public Layer () { };
+    public Layer () {
+        this.id = id;
+        this.name = name;
+        this.visible = visible;
+        this.shapes = shapes;
+    };
 
-    //
-    // Methods
-    //
-
-
-    //
-    // Accessor methods
-    //
 
     /**
      * Set the value of id
@@ -65,18 +62,26 @@ public class Layer {
     }
 
     /**
-     * Set the value of visible
-     * @param newVar the new value of visible
+     * Set the value of visible to True
      */
-    public void setVisible (char newVar) {
-        visible = newVar;
+    public void setVisible () {
+        visible = true;
     }
 
     /**
+     * Set the value of visible to True
+     */
+    public void setUnvisible () {
+        visible = false;
+    }
+
+
+    /**
      * Get the value of visible
+     *
      * @return the value of visible
      */
-    public char getVisible () {
+    public boolean getVisible () {
         return visible;
     }
 
@@ -84,7 +89,7 @@ public class Layer {
      * Set the value of shapes
      * @param newVar the new value of shapes
      */
-    public void setShapes (ArrayList newVar) {
+    public void setShapes (ArrayList <Shape> newVar) {
         shapes = newVar;
     }
 
@@ -92,7 +97,7 @@ public class Layer {
      * Get the value of shapes
      * @return the value of shapes
      */
-    public ArrayList getShapes () {
+    public ArrayList <Shape> getShapes () {
         return shapes;
     }
 

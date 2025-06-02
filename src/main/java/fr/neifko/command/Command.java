@@ -89,6 +89,7 @@ public class Command {
             if (int_size < 2) { errorNum = 3; }
             else {
                 Point pt = new Point(int_params[0], int_params[1]);
+                app.currentShape = pt;
                 System.out.println("Point created: " + pt);
                 errorNum = 0;
             }
@@ -96,24 +97,28 @@ public class Command {
             if (int_size < 4) { errorNum = 3; }
             else {
                 Line ln = new Line(new Point(int_params[0], int_params[1]), new Point(int_params[2], int_params[3]));
+                app.currentShape = ln;
                 errorNum = 0;
             }
         } else if (cmdName.equals("circle")) {
             if (int_size < 3) { errorNum = 3; }
             else {
                 Circle sh = new Circle(new Point(int_params[0], int_params[1]), int_params[2]);
+                app.currentShape = sh;
                 errorNum = 0;
             }
         } else if (cmdName.equals("square")) {
             if (int_size < 3) { errorNum = 3; }
             else {
                 Squar sh = new Squar(new Point(int_params[0], int_params[1]), int_params[2]);
+                app.currentShape = sh;
                 errorNum = 0;
             }
         } else if (cmdName.equals("rectangle")) {
             if (int_size < 4) { errorNum = 3; }
             else {
                 Rectangle sh = new Rectangle(new Point(int_params[0], int_params[1]), int_params[2], int_params[3]);
+                app.currentShape = sh;
                 errorNum = 0;
             }
         } else if (cmdName.equals("polygon")) {
@@ -131,6 +136,7 @@ public class Command {
                         new Point(int_params[4], int_params[5]),
                         new Point(int_params[6], int_params[7])
                 );
+                app.currentShape = sh;
                 errorNum = 0;
             }
         } else if (cmdName.equals("list")) {

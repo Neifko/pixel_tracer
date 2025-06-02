@@ -15,39 +15,33 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // init app
-        ArrayList<Area> areas = new ArrayList<>();
-        Area currentArea = new Area(Id.getInstance().getNextId(), "area1", 80, 40);
-        areas.add(currentArea);
+        Command cmd = new Command();
 
-        ArrayList<Layer> layers = new ArrayList<>();
-        Layer currentLayer = new Layer(Id.getInstance().getNextId(), "layer1");
-        layers.add(currentLayer);
-
-        Shape currentShape;
+        App app = new App();
 
         // clear_screen
-
+        Render.clearScreen();
         // draw_all_layer
-        Render.drawAllLayers(currentArea);
+        Render.drawAllLayers(app.currentArea);
         // draw area
-        Render.drawArea(currentArea);
+        Render.drawArea(app.currentArea);
 
         while(true) {
-            int err = Command.readAndExcute();
+            int err = cmd.read_exec_command(app);
             if (err == 0 || err == 6){
                 // clear_screen
-
+                Render.clearScreen();
                 // draw_all_layer
-                Render.drawAllLayers(currentArea);
+                Render.drawAllLayers(app.currentArea);
                 // draw area
-                Render.drawArea(currentArea);
+                Render.drawArea(app.currentArea);
             }
             if (err == 4){
                 break;
             }
             if (err == 5){
                 // clear_screen
+                Render.clearScreen();
             }
             if (err == 7 || err == 8){
                 continue;

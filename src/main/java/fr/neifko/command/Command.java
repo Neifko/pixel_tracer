@@ -60,7 +60,7 @@ public class Command {
 
     }
 
-    public void read_exec_command(Main app, Area area, Layer layer, Shape shape) {
+    public void read_exec_command(App app) {
         if (this.name.equals("exit")) {
             System.out.println("Exiting...");
             System.exit(0);

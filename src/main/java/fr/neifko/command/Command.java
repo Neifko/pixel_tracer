@@ -1,5 +1,6 @@
 package fr.neifko.command;
 
+import fr.neifko.App;
 import fr.neifko.Main;
 import fr.neifko.area.Area;
 import fr.neifko.layer.Layer;

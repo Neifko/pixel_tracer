@@ -31,16 +31,6 @@ public class Render{
         this.redCell = redCell;
     };
 
-    //
-    // Methods
-    //
-
-    /**
-     * @param area
-     */
-    private void render_area(Area area){
-
-    }
 
     /**
      * Affiche la zone actuelle dans la console.

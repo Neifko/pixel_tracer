@@ -14,14 +14,14 @@ public class Layer {
     //
 
     protected int id;
-    protected String name;
+    protected char name;
     protected boolean visible;
     protected ArrayList <Shape> shapes;
 
     //
     // Constructors
     //
-    public Layer (int id, String name) {
+    public Layer (int id, char name) {
         this.id = id;
         this.name = name;
         this.visible = true;

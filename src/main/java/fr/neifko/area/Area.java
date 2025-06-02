@@ -11,7 +11,7 @@ import fr.neifko.layer.Layer;
  */
 public class Area {
 
-    long id;
+    int id;
     String name;
     int width;
     int height;
@@ -21,14 +21,9 @@ public class Area {
     ArrayList<Layer> lstLayers;
 
     /**
-     * Constructeur avec paramètres.
-     *
-     * @param id       Identifiant de la zone.
-     * @param name     Nom de la zone.
-     * @param width    Largeur de la zone.
-     * @param height   Hauteur de la zone.
+     * Constructeur
      */
-    public Area(long id, String name, int width, int height) {
+    public Area(int id, String name, int width, int height) {
         this.id = id;
         this.name = name;
         this.width = width;
@@ -104,7 +99,7 @@ public class Area {
         return lstLayers;
     }
     public void setLstLayers(List<Layer> lstLayers) {
-        this.lstLayers = lstLayers;
+        this.lstLayers = (ArrayList<Layer>) lstLayers;
     }
 
 

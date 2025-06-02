@@ -3,6 +3,7 @@ package fr.neifko;
 import fr.neifko.area.Area;
 import fr.neifko.command.Command;
 import fr.neifko.layer.Layer;
+import fr.neifko.render.Render;
 import fr.neifko.shape.Shape;
 
 import java.util.ArrayList;
@@ -26,15 +27,21 @@ public class Main {
         Shape currentShape;
 
         // clear_screen
+
         // draw_all_layer
+        Render.drawAllLayers(currentArea);
         // draw area
+        Render.drawArea(currentArea);
 
         while(true) {
-            int err = Command.execCommand();
+            int err = Command.readAndExcute();
             if (err == 0 || err == 6){
                 // clear_screen
+
                 // draw_all_layer
+                Render.drawAllLayers(currentArea);
                 // draw area
+                Render.drawArea(currentArea);
             }
             if (err == 4){
                 break;

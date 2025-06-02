@@ -76,6 +76,24 @@ public class Render{
     }
 
 
+    public static void clearScreen() {
+        try {
+            String os = System.getProperty("os.name");
+    
+            if (os.contains("Windows")) {
+                // Windows : utilise la commande "cls"
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                // Linux/macOS : séquence ANSI d'effacement de l'écran
+                System.out.print("\033[H\033[J");
+                System.out.flush();
+            }
+        } catch (Exception e) {
+            System.out.println("Erreur lors du nettoyage de l'écran.");
+        }
+    }
+
+
     /**
      * Dessine tous les layers visibles dans la zone.
      * @param area La zone à dessiner.

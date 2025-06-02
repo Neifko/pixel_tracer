@@ -31,16 +31,6 @@ public class Render{
         this.redCell = redCell;
     };
 
-    //
-    // Methods
-    //
-
-    /**
-     * @param area
-     */
-    private void render_area(Area area){
-
-    }
 
     /**
      * Affiche la zone actuelle dans la console.
@@ -72,6 +62,24 @@ public class Render{
                     area.getArea()[i][j] = area.getEmptyChar();
                 }
             }
+        }
+    }
+
+
+    public static void clearScreen() {
+        try {
+            String os = System.getProperty("os.name");
+    
+            if (os.contains("Windows")) {
+                // Windows : utilise la commande "cls"
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                // Linux/macOS : séquence ANSI d'effacement de l'écran
+                System.out.print("\033[H\033[J");
+                System.out.flush();
+            }
+        } catch (Exception e) {
+            System.out.println("Erreur lors du nettoyage de l'écran.");
         }
     }
 

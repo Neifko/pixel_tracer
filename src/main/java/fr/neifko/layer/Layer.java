@@ -14,14 +14,14 @@ public class Layer {
     //
 
     protected int id;
-    protected char name;
+    protected String name;
     protected boolean visible;
     protected ArrayList <Shape> shapes;
 
     //
     // Constructors
     //
-    public Layer (int id, char name) {
+    public Layer (int id, String name) {
         this.id = id;
         this.name = name;
         this.visible = true;
@@ -49,7 +49,7 @@ public class Layer {
      * Set the value of name
      * @param newVar the new value of name
      */
-    public void setName (char newVar) {
+    public void setName (String newVar) {
         name = newVar;
     }
 
@@ -57,7 +57,7 @@ public class Layer {
      * Get the value of name
      * @return the value of name
      */
-    public char getName () {
+    public String getName () {
         return name;
     }
 
